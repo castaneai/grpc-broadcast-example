@@ -38,7 +38,7 @@ func (s *server) getClients() []pb.ChatRoom_ChatServer {
 	var cs []pb.ChatRoom_ChatServer
 
 	s.mu.RLock()
-	defer s.mu.Unlock()
+	defer s.mu.RUnlock()
 	for _, c := range s.clients {
 		cs = append(cs, c)
 	}
